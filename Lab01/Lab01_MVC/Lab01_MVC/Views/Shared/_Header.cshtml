@@ -1,0 +1,39 @@
+﻿<!-- MENU / HEADER -->
+<header class="sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark py-2">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold text-uppercase d-flex align-items-center gap-2"
+               asp-controller="Home"
+               asp-action="Index">
+                <span>MyApp<span class="text-primary">MVC</span></span>
+            </a>
+
+            <!-- Nút Toggle Mobile -->
+            <button class="navbar-toggler border-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu Links -->
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0 ms-md-3">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Product" asp-action="Index">Sản phẩm</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lab01_MVC</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <!-- 1. CHÈN HEADER TỪ FILE _Header.cshtml -->
+    <partial name="_Header" />
+
+    <!-- 2. NỘI DUNG CHÍNH CỦA TỪNG VIEW (Index, Details, v.v...) -->
+    <main role="main" class="flex-shrink-0 pb-4">
+        @RenderBody()
+    </main>
+
+    <!-- 3. CHÈN FOOTER TỪ FILE _Footer.cshtml -->
+    <partial name="_Footer" />
+
+    <!-- JAVASCRIPT -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

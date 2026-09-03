@@ -1,0 +1,185 @@
+﻿@model List<Lab01_MVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<style>
+    /* Bo góc và đổ bóng cho Carousel */
+    #productCarousel {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .banner-wrapper {
+        position: relative;
+        height: 380px;
+    }
+
+    .banner-image {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Đưa nội dung đè lên giữa tấm ảnh banner */
+    .banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.15); /* Lớp phủ nhẹ giúp chữ rõ nét hơn */
+    }
+
+    /* Style cho Card sản phẩm */
+    .product-card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        border-color: #0d6efd;
+    }
+
+    .product-image-wrapper {
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .product-image {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .product-name {
+        font-weight: 500;
+        color: #333;
+        font-size: 1rem;
+        margin-top: auto;
+    }
+</style>
+
+<!-- Banner -->
+<div class="container my-4">
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+        
+        <!-- Indicators (Nút chuyển slide) -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <!-- SLIDE 1 -->
+            <div class="carousel-item active">
+                <div class="banner-wrapper">
+                    <img src="/images/banner.jpg" class="d-block w-100 banner-image" alt="Banner">
+                    
+                    <!-- Lớp phủ nội dung thông tin trên Banner -->
+                    <div class="banner-overlay">
+                        <div class="d-flex justify-content-center align-items-center mb-3 gap-3 flex-wrap">
+                            <span class="fs-1 fw-normal text-white me-2">Microsoft Azure</span>
+                            <div style="border-right: 1px solid rgba(255,255,255,0.5); height: 40px;" class="d-none d-sm-block"></div>
+                            
+                            <!-- Các Icon dịch vụ Azure -->
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="~/images/iconTG.jpg" alt="App Service" style="height: 50px;" />
+                                <img src="~/images/azure-data-pipeline.jpg" alt="DevOps" style="height: 50px;" />
+                                <img src="~/images/iconDB.jpg" alt="SQL" style="height: 50px;" />
+                                <img src="~/images/iconGird.jpg" alt="Storage" style="height: 50px;" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center flex-wrap gap-2">
+                            <span class="fs-6 text-light fw-light">
+                                Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                            </span>
+                            <a href="#" class="btn btn-light btn-sm text-dark px-3 ms-2 fw-medium shadow-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="carousel-item">
+                <div class="banner-wrapper">
+                    <img src="/images/banner.jpg" class="d-block w-100 banner-image" alt="Banner">
+                    
+                    <div class="banner-overlay">
+                        <div class="d-flex justify-content-center align-items-center mb-3 gap-3 flex-wrap">
+                            <span class="fs-1 fw-normal text-white me-2">Microsoft Azure</span>
+                            <div style="border-right: 1px solid rgba(255,255,255,0.5); height: 40px;" class="d-none d-sm-block"></div>
+                            
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://img.icons8.com/color/96/azure-1.png" alt="App Service" style="height: 50px;" />
+                                <img src="https://img.icons8.com/color/96/azure-pipelines.png" alt="DevOps" style="height: 50px;" />
+                                <img src="https://img.icons8.com/color/96/database.png" alt="SQL" style="height: 50px;" />
+                                <img src="https://img.icons8.com/color/96/grid.png" alt="Storage" style="height: 50px;" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center flex-wrap gap-2">
+                            <span class="fs-6 text-light fw-light">
+                                Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                            </span>
+                            <a href="#" class="btn btn-light btn-sm text-dark px-3 ms-2 fw-medium shadow-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- Danh sách sản phẩm -->
+<div class="container product-list my-5">
+    <h2 class="mb-4 fw-bold text-dark border-bottom pb-2">Danh sách sản phẩm</h2>
+
+    <div class="row g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="@product.Image" alt="@product.Name" class="product-image" />
+                    </div>
+                    <div class="product-name">
+                        @product.Name
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
