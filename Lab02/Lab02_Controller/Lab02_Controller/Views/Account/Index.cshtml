@@ -1,0 +1,26 @@
+﻿@using Lab02_Controller.Models
+@{
+    ViewData["Title"] = "Index";
+    var accounts = ViewBag.Accounts as List<Account>;
+}
+
+<div class="row">
+    @if (accounts != null)
+    {
+        @foreach (var item in accounts)
+        {
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="@item.Avatar" alt="@item.Name" style="width:100%">
+                    <div class="caption">
+                        <h3>@item.Name</h3>
+                        <p>@item.Bio</p>
+                        <p>
+                            <a asp-route="profile" asp-route-id="@item.Id" class="btn btn-success btn-block">Profile</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
