@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+
+using Lab06_EntityFramework_Guide.Models;
 namespace Lab06_EntityFramework_Guide
 {
     public class Program
@@ -5,6 +8,9 @@ namespace Lab06_EntityFramework_Guide
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
